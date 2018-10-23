@@ -24,7 +24,7 @@ yarn start
 ```
 
 ### Hot
- - It's cool that the CRA team is 'officially' supporting this, especially with previous attempts suffering from [neglect](https://github.com/Microsoft/TypeScript-React-Starter/issues/168#issuecomment-406774564) and confusion around stewardship.
+ - It's cool that the CRA team is 'officially' supporting this, especially with previous attempts suffering from [neglect](https://github.com/Microsoft/TypeScript-React-Starter/issues/168#issuecomment-406774564) and confusion around [stewardship](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html).
  - Local dev env startup seems a lot faster. I suppose it's either Babel 7.1, or Webpack v4, or both. Noticeable speed up.
 
 ### Not
