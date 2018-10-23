@@ -3,6 +3,11 @@
 ## TypeScript support has [landed](https://github.com/facebook/create-react-app/pull/4837#discussion-diff-209813518R919) in CRAv2
 This repo is a throwaway experiment to check out Babel-based TypeScript support, as made available in CRAv2.
 
+## How do I use it?
+You probably will need to follow the instructions [here](https://github.com/facebook/create-react-app/pull/4837#issue-204661388), please see the bottom of the comment 'How to try ...'. Specifically cloning CRA from GitHub, running `yarn`, and linking `yarn link` there and again inside this repo.
+
+While the React team merged TS support into `master`, as of 10/23/2018 they haven't yet released anything public-facing.
+
 ### Hot
  - It's cool that the CRA team is 'officially' supporting this, especially with previous attempts suffering from [neglect](https://github.com/Microsoft/TypeScript-React-Starter/issues/168#issuecomment-406774564) and confusion around stewardship.
  - Local dev env startup seems a lot faster. I suppose it's either Babel 7.1, or Webpack v4, or both. Noticeable speed up.
