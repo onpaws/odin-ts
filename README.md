@@ -4,9 +4,24 @@
 This repo is a throwaway experiment to check out Babel-based TypeScript support, as made available in CRAv2.
 
 ## How do I use it?
-You probably will need to follow the instructions [here](https://github.com/facebook/create-react-app/pull/4837#issue-204661388), please see the bottom of the comment 'How to try ...'. Specifically cloning CRA from GitHub, running `yarn`, and linking `yarn link` there and again inside this repo.
+While the React team merged TS support into `master`, as of 10/23/2018 there isn't yet an official public release.
 
-While the React team merged TS support into `master`, as of 10/23/2018 they haven't yet released anything public-facing.
+Thus please follow the instructions [here](https://github.com/facebook/create-react-app/pull/4837#issue-204661388), see the bottom of the comment 'How to try ...'. 
+
+In summary:
+```
+git clone git@github.com:facebook/create-react-app.git
+cd create-react-app
+yarn
+yarn link
+```
+From another terminal...
+```
+cd odin-ts
+yarn link react-scripts
+yarn
+yarn start
+```
 
 ### Hot
  - It's cool that the CRA team is 'officially' supporting this, especially with previous attempts suffering from [neglect](https://github.com/Microsoft/TypeScript-React-Starter/issues/168#issuecomment-406774564) and confusion around stewardship.
