@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ApolloProvider } from 'react-apollo';
+
+import App from './App';
+import client from './Apollo';
+
 import './index.css';
-import { Hello } from './Hello';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Hello compiler='TypeScript' framework='React' />, 
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>, 
   document.getElementById('root')
 );
 
