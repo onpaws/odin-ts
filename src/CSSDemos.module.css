@@ -28,3 +28,14 @@
     -initial-letter: 3;
   }
 }
+
+
+/* Oct 2018: writing-mode: sideways-lr only works in Firefox
+   We can re-create it using more widely compatible CSS */
+.vertText {
+  float: left;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: right;
+  text-orientation: sideways;
+}

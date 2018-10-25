@@ -35,6 +35,10 @@ const CSSDemos = () =>
                alt={'Pulpit Rock'}  />
         </figure>
       </article>
+      <article>
+        <h4 className={styles.vertText}>Preikestolen</h4>
+        <img src={require('./assets/pulpit-rock.jpg')}  alt={'Pulpit Rock'}  />
+      </article>
     </main>
 
 export default CSSDemos

@@ -6,6 +6,7 @@ import Me from './Me';
 const App = () =>
   <div>
     <Hello compiler='TypeScript' framework='React' />
+    <CSSDemos />
     <Me />
   </div>
 
