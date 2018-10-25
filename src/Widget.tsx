@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import styles from './Widget.module.css';
 
 const GET_SHIPS = gql`
-  {
+  query allStarships {
     allStarships {
       id
       name
