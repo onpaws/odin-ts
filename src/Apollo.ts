@@ -7,12 +7,12 @@ import { onError } from 'apollo-link-error';
 import { getMainDefinition } from 'apollo-utilities';
 
 const httpLink = new HttpLink({
-  uri: 'https://api.graph.cool/simple/v1/swapi',
+  uri: 'http://localhost:4000/graphql',
   credentials: 'include'
 });
 
 const wsLink = new WebSocketLink({
-  uri: 'wss://subscriptions.graph.cool/v1/swapi',
+  uri: 'ws://localhost:4000/graphql',
   options: {
     reconnect: true,
   },
