@@ -1,0 +1,21 @@
+.content {
+  padding: 1rem;
+}
+
+.shapeDemo {
+  float:left;
+  margin-right: 7rem;
+  shape-outside: circle();
+}
+
+.clipPathDemo {
+  clip-path: polygon(0% 0%, 100% 10%, 98% 99%, 3% 93%);
+}
+
+p::first-letter {
+  color: rgba(255,190,100,0.8);
+  font-weight: bold;
+  margin-right: 0.5em;
+
+  initial-letter: 2;
+}

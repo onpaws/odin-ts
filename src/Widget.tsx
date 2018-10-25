@@ -21,14 +21,14 @@ const Ships = () =>
           if (loading) return <h1>Loading...</h1>;
           if (error) return <h1>Error</h1>;
 
-          return data.allStarships.map(ship => 
+          return data.allStarships.map((ship: any) => 
             <Ship key={ship.id} {...ship} />
           );
         }}
     </Query>
   </div>
 
-const Ship = (props) => 
+const Ship = (props: any) => 
   <div>
     <h4>{props.name}</h4>
     <p>Passengers: {props.passengers}</p>
