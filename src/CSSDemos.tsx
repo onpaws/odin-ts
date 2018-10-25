@@ -13,7 +13,9 @@ const CSSDemos = () =>
                alt="Yin Yang" 
                height={300} width={300} />
         </figure>
-        <p>More stuff about the thing goes here. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster</p>
+        
+        <p className={styles.opener}>More stuff about the thing goes here. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster</p>
+        
         <p>More stuff about the thing goes here. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster</p>
         <p>More stuff about the thing goes here. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster</p>
         <p>More stuff about the thing goes here. Lorem ipsum hipster dipster hipster dipster hipster dipster hipster dipster hipster dipster</p>
