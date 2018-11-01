@@ -1,11 +1,9 @@
 import * as React from 'react';
 import Hello from './Hello';
-import Widget from './Widget';
 
-const App = (props) =>
+const App = () =>
   <div>
     <Hello compiler='TypeScript' framework='React' />
-    <Widget />
   </div>
 
 export default App
