@@ -10,6 +10,7 @@ const SuspenseDemo = () =>
       <Suspense maxDuration={1000} fallback={<Spinner />}>
         <Suspenders />
       </Suspense>
+      <p>(spinner expected to display for 1s)</p>
     </ErrorBoundary>
   </div>
 

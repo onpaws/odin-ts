@@ -19,7 +19,6 @@ const Suspenders = () =>  {
   return (
     <div>
        <RandomUser />
-      <em>(spinner expected to display for 1s)</em>
     </div>
   )
 }
