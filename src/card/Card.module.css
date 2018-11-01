@@ -1,0 +1,13 @@
+.parent {
+  background-color: rgb(211, 211, 211);
+  border-radius: 8px;
+  padding: .5em;
+  margin: .5em;
+  box-shadow: 4px 4px 4px #888888;
+}
+
+header {  
+  color: rgb(0, 43, 56);
+  font-weight: bold;
+  margin-bottom: .5em;
+}
