@@ -1,17 +1,19 @@
 import * as React from 'react';
 import Card from './card';
 import Hello from './Hello';
-import Hook from './Hook';
+import {StateAndEffectHookInput} from './Hook';
 import Suspense from './suspense';
 import {RegularDemo, MemoDemo} from './memo';
+import styles from './Layout.module.css';
 
 const Layout = () =>
   <div>
-    <nav></nav>
-    <section>
+    <header>
       <Hello compiler='TypeScript' framework='React' />
-      <Card title={'I\'m getting Hooked'}>
-        <Hook />
+    </header>
+    <section className={styles.cards}>
+      <Card title={'Hooked on <input> (useState & useEffect)'}>
+        <StateAndEffectHookInput />
       </Card>
       <Card title={'This Laziness is keeping me in Suspense'}>
         <Suspense />

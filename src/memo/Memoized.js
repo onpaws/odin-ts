@@ -18,3 +18,9 @@ export const OnePropComponentMemoized = React.memo(({frequency}) => {
     <p>Memoized: {'Hi, I\'m <OnePropComponentMemoized>'} and I update every {frequency} seconds.</p>
   )
 });
+
+// React.memo(() => <div></div>, equalityFunction)
+// React.memo does a shallow comparison by default.
+// If you need a different equality comparison, you can optionall provide as a 2nd param.
+
+// See https://www.leighhalliday.com/react-purity

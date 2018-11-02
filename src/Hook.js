@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo, useReducer} from 'react';
 
 /* 
   Note: I'm not using TS for this particular file b/c as of 20181031, 
   the TS definitions are not available for React v16.7.0-alpha.
 */ 
 
-const Hook = () =>  {
+export const StateAndEffectHookInput = () =>  {
   const name = useFormInput('Patrick');
 
   return (
@@ -15,8 +15,6 @@ const Hook = () =>  {
     </div>
   )
 }
-
-export default Hook
 
 // Abramov suggests using 'use' prefix @ https://youtu.be/dpw9EHDh2bM?t=2883
 const useFormInput = (initialValue) => {
@@ -39,3 +37,20 @@ const useFormInput = (initialValue) => {
     onChange: handleChange
   };
 }
+
+
+export const MemoHook = () => {
+  // 1st param is a callback function, it returns a value
+  // useMemo accepts array for 2nd param. Think of it as the 'dependencies' of the hook
+  // const filteredUsers = useMemo(
+  //   () => filterUsers(users, searchText),
+  //   [users, searchText]
+  // )
+
+  return (
+    <div>
+
+    </div>
+  )
+}
+  

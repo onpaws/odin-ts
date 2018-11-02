@@ -4,6 +4,7 @@
   padding: .5em;
   margin: .5em;
   box-shadow: 4px 4px 4px #888888;
+  max-width: 400px;
 }
 
 header {  
