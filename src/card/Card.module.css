@@ -3,7 +3,7 @@
   border-radius: 8px;
   padding: .5em;
   margin: .5em;
-  box-shadow: 4px 4px 4px #888888;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
   max-width: 400px;
 }
 
