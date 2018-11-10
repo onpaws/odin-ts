@@ -18,7 +18,7 @@ const wsLink = new WebSocketLink({
   },
 });
 
-const link = split(
+const networkLink = split(
   // split based on operation type
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query);
@@ -28,24 +28,28 @@ const link = split(
   httpLink,
 );
 
+const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
+  if (graphQLErrors)
+    graphQLErrors.map(({ message, locations, path }) =>
+      console.log(
+        '[GraphQL error]: Message:', message, 'Location(s):', locations, 'Path:', path
+      ),
+    );
+  if (networkError) console.warn(
+    '[Network error]:', networkError, 'Operation:', operation.operationName
+  );
+});
+
 // Set up Cache
 const cache = new InMemoryCache();
 
 // Initialize the Apollo Client
 const client = new ApolloClient({
   link: ApolloLink.from([
-    onError(({ graphQLErrors, networkError }) => {
-      if (graphQLErrors)
-        graphQLErrors.map(({ message, locations, path }) =>
-          console.log(
-            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-          ),
-        );
-      if (networkError) console.warn(`[Network error]: ${networkError}`);
-    }),
-    link,
+    errorLink,
+    networkLink,
   ]),
-  cache: cache,
+  cache,
 });
 
 export default client;
