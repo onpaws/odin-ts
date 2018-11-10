@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import Spinner from '../spinner';
 
-const Suspenders = lazy(() => import('./Suspenders'));
+const Suspenders = lazy(() => import(/* webpackChunkName: "Suspenders" */ './Suspenders'));
 
 const SuspenseDemo = () =>
   <div>

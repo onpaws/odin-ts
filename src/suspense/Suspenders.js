@@ -5,8 +5,8 @@ const sleep = ms => new Promise(resolve => setTimeout(() => resolve(), ms));
 
 const RandomUserResource = unstable_createResource(async () => {
   await sleep(2000);
-  const res = await fetch('https://randomuser.me/api/');
-  return await res.json();
+  const response = await fetch('https://randomuser.me/api/');
+  return await response.json();
 })
 
 const RandomUser = () => {
