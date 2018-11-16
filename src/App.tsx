@@ -1,13 +1,10 @@
-import React from 'react';
-import Hello from './Hello';
-import CSSDemos from './CSSDemos';
-import Me from './Me';
+import * as React from 'react';
+import Layout from './Layout';
+
 
 const App = () =>
   <div>
-    <Hello compiler='TypeScript' framework='React' />
-    <CSSDemos />
-    <Me />
+    <Layout />
   </div>
 
 export default App
