@@ -5,6 +5,7 @@ import {StateAndEffectHookInput} from './Hook';
 import Suspense from './suspense';
 import {RegularDemo, MemoDemo} from './memo';
 import styles from './Layout.module.css';
+import { HookReducer } from './HookReducer';
 
 const Layout = () =>
   <div>
@@ -23,6 +24,9 @@ const Layout = () =>
       </Card>
       <Card title={'Memoized pure function demo'}>
         <MemoDemo />
+      </Card>
+      <Card title={'Hook reducer'}>
+        <HookReducer />
       </Card>
     </section>
   </div>

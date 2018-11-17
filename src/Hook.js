@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {useState, useEffect, useMemo, useReducer} from 'react';
+import React from 'react';
+import {useState, useEffect} from 'react';
 
 /* 
   Note: I'm not using TS for this particular file b/c as of 20181031, 
