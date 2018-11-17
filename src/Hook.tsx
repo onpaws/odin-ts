@@ -12,11 +12,11 @@ export const StateAndEffectHookInput = () =>  {
 }
 
 // Abramov suggests using 'use' prefix @ https://youtu.be/dpw9EHDh2bM?t=2883
-const useFormInput = ({initialValue}:any) => {
+const useFormInput = (initialValue: any) => {
   const [value, setValue] = useState(initialValue);
 
-  const handleChange = ({e}: any) => {
-    setValue(e.target.value);
+  const handleChange = (event: any) => {
+    setValue(event.target.value);
   }
 
   useEffect(() => {
