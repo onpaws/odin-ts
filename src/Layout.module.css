@@ -1,4 +1,72 @@
-.cards {
+.wrapper {
+  background: #F0F0F0;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas: 
+    "header"
+    "nav"
+    "content"
+    "sidebar"
+    "footer";
+}
+.header {
+  grid-area: header;
+  background: #c3c3c3;
+  padding: 1rem;
+}
+.content {
+  grid-area: content;
+  border: 1px solid gray;
+  padding: 1rem;
+}
+.nav {
+  grid-area: nav;
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.footer {
+  grid-area: footer;
+  background: linear-gradient(to bottom, darkgray, #222 10%, #aaa 75%, #333 90%);
+  color: white;
+  min-height: 100px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+
+/* Mobile phone */
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+      "header  header"
+      "nav     nav"
+      "content content"
+      "sidebar sidebar"
+      "footer  footer";
+  }
+  nav ul {
+    justify-content: space-between;
+  }
+}
+
+/* Desktop and possibly iPad */
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: 
+      "header header  header"
+      "nav    content sidebar"
+      "nav    content sidebar"
+      "footer footer  footer"
+   }
+   nav ul {
+     flex-direction: column;
+   }
 }
