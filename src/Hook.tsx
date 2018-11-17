@@ -1,11 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-/* 
-  Note: I'm not using TS for this particular file b/c as of 20181031, 
-  the TS definitions are not available for React v16.7.0-alpha.
-*/ 
-
 export const StateAndEffectHookInput = () =>  {
   const name = useFormInput('Patrick');
 
@@ -17,10 +12,10 @@ export const StateAndEffectHookInput = () =>  {
 }
 
 // Abramov suggests using 'use' prefix @ https://youtu.be/dpw9EHDh2bM?t=2883
-const useFormInput = (initialValue) => {
+const useFormInput = ({initialValue}:any) => {
   const [value, setValue] = useState(initialValue);
 
-  const handleChange = (e) => {
+  const handleChange = ({e}: any) => {
     setValue(e.target.value);
   }
 

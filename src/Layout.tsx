@@ -25,7 +25,7 @@ const Layout = () =>
       <Card title={'Memoized pure function demo'}>
         <MemoDemo />
       </Card>
-      <Card title={'Hook reducer'}>
+      <Card title={'Hook Reducer'}>
         <HookReducer />
       </Card>
     </section>

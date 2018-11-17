@@ -17,10 +17,10 @@ const reducer = (state: any, action: any) => {
 }
 
 
-export const HookReducer = ({ initialCount }: any) => {
-  const [state, dispatch] = useReducer(reducer, { count: initialCount })
+export const HookReducer = () => {
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
-    <div>
+    <>
       <div>
         Count: {state.count}
       </div>
@@ -28,6 +28,6 @@ export const HookReducer = ({ initialCount }: any) => {
         <button onClick={() => dispatch({ type: 'increment' })}>+</button>
         <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
       </div>
-    </div>
+    </>
   )
 }
