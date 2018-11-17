@@ -5,7 +5,11 @@ const users = [
   'bob',
   'charles',
   'ragnhild',
-  'patrick'
+  'patrick',
+  'gerd',
+  'andrew',
+  'paul',
+  'zelda'
 ];
 
 export const HookMemo = () => {
