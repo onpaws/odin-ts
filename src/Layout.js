@@ -34,7 +34,9 @@ const Layout = () =>
         <MemoSidebar path='memo' />
       </Router>
     </aside>
-    <footer className={footer}>The footer</footer>
+    <footer className={footer}>
+      &copy; 2018 Patrick Skinner
+    </footer>
   </div>
 
 export default Layout

@@ -13,6 +13,7 @@
   grid-area: header;
   background: #c3c3c3;
   padding: 1rem;
+  box-shadow: 0px 5px 5px 0px rgba(143,143,143,1);
 }
 .content {
   grid-area: content;
@@ -27,9 +28,9 @@
 }
 .footer {
   grid-area: footer;
-  background: linear-gradient(to bottom, darkgray, #222 10%, #aaa 75%, #333 90%);
+  background: linear-gradient(to bottom, darkgray, #222 10%, #aaa 80%, #333 95%);
   color: white;
-  min-height: 100px;
+  min-height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,6 +39,22 @@
 .nav ul {
   display: flex;
   list-style: none;
+}
+.nav ul li {
+  padding: .2rem 0;
+}
+
+.nav ul li::before {
+  content: '> ';
+  position: relative;
+  opacity: 0;
+  left: -20px;
+  transition: all .3s ease-in-out;
+}
+.nav ul li:hover::before {
+  content: '> ';
+  opacity: 1;
+  left: 0px;
 }
 
 /* Mobile phone */
