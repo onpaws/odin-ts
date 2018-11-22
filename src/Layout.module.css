@@ -25,6 +25,7 @@
 }
 .sidebar {
   grid-area: sidebar;
+  margin-right: 1em;
 }
 .footer {
   grid-area: footer;
@@ -39,11 +40,11 @@
 .nav ul {
   display: flex;
   list-style: none;
+  padding-inline-start: 1em;
 }
 .nav ul li {
   padding: .2rem 0;
 }
-
 .nav ul li::before {
   content: '> ';
   position: relative;
@@ -76,7 +77,7 @@
 /* Desktop and possibly iPad */
 @media (min-width: 700px) {
   .wrapper {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1.5fr 4fr 1fr;
     grid-template-areas: 
       "header header  header"
       "nav    content sidebar"

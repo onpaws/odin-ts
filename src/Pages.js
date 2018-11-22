@@ -2,12 +2,13 @@ import React from 'react';
 import Card from './card';
 import { RegularDemo, MemoDemo } from './memo';
 import Suspense from './suspense';
-import { StateAndEffectHookInput, HookReducer, HookMemo } from './hooks';
+import { StateAndEffectHookInput, HookReducer, HookMemo, DeepTreeDemo } from './hooks';
 
 export const Home = () =>
   <div>
     <h4>Home</h4>
     <p>Welcome to Odin, a demo of latest-gen React technologies.</p>
+    <p>Hooks, Memo, Suspense, Concurrent mode</p>
   </div>
 
 export const Memo = () =>
@@ -34,6 +35,14 @@ export const HookReducerDemo = () =>
   <Card title={'Hook Reducer'}>
     <HookReducer />
   </Card>
+
+export const HookDeepTree = () =>
+  <div>
+    <Card title={'React.createContext provides dispatch in deep trees'}>
+      <DeepTreeDemo />
+    </Card>
+  </div>
+
 
 export const HookMemoDemo = () =>
   <Card title={'Hook Memo'}>
