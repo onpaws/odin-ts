@@ -8,7 +8,7 @@ import client from './Apollo';
 import * as serviceWorker from './serviceWorker';
 
 // .createRoot enables concurrent React
-ReactDOM.createRoot(document.getElementById('root')).render(
+  ReactDOM.unstable_createRoot(document.getElementById('root')).render(
   <React.Suspense fallback={<Spinner />}>
     <ApolloProvider client={client}>
       <App />
