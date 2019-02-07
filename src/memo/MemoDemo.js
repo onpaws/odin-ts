@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {OnePropComponentMemoized} from './Memoized';
 
 class MemoDemo extends React.Component {

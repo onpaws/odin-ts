@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Link, Router } from '@reach/router';
 import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree, LazySuspense  } from './Pages';
 import Hello from './Hello';

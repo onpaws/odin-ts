@@ -7,12 +7,12 @@ import { onError } from 'apollo-link-error';
 import { getMainDefinition } from 'apollo-utilities';
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://localhost:4000',
   credentials: 'include'
 });
 
 const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:4000/graphql',
+  uri: 'ws://localhost:4000',
   options: {
     reconnect: true,
   },

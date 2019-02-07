@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './Hello.module.css';
 
 export interface HelloProps { compiler: string; framework: string; }
