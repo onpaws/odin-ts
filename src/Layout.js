@@ -40,7 +40,7 @@ const Layout = () =>
       </Router>
     </aside>
     <footer className={footer}>
-      &copy; 2018 Patrick Skinner
+      &copy; 2019 Patrick Skinner
     </footer>
   </div>
 
