@@ -17,7 +17,7 @@ const Layout = () =>
         <li><Link to='/hook-reducer'>Hook: useReducer</Link></li>
         <li><Link to='/hook-memo'>Hook: Memo (filter)</Link></li>
         <li><Link to='/hook-deep-tree'>Hook: Passing dispatch with Context</Link></li>
-        <li><Link to='/lazy-suspense'>React.Suspense & React.lazy</Link></li>
+        <li><Link to='/lazy-suspense'>React.Suspense &amp; React.lazy</Link></li>
         
       </ul>
     </nav>
