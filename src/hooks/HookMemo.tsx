@@ -1,17 +1,6 @@
 import React from 'react';
 import {useState, useMemo} from 'react';
 
-const users = [
-  'bob',
-  'charles',
-  'ragnhild',
-  'patrick',
-  'gerd',
-  'andrew',
-  'paul',
-  'zelda'
-];
-
 export const HookMemo = () => {
   const [searchText, setSearchText] = useState('');
   
@@ -25,6 +14,17 @@ export const HookMemo = () => {
     console.log('filterUsers() called')
     return users.filter(user => user.match(searchText));
   }
+
+  const users = [
+    'bob',
+    'charles',
+    'ragnhild',
+    'patrick',
+    'gerd',
+    'andrew',
+    'paul',
+    'zelda'
+  ];
   
   const filteredUsers = useMemo(
     () => filterUsers(users, searchText),
