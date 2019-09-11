@@ -1,10 +1,11 @@
-import ApolloClient from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import ApolloClient, { InMemoryCache } from '@apollo/client';
 import { ApolloLink, split } from 'apollo-link';
 import { HttpLink } from 'apollo-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { onError } from 'apollo-link-error';
 import { getMainDefinition } from 'apollo-utilities';
+
+// More info https://github.com/apollographql/apollo-client/blob/master/ROADMAP.md#how-we-get-there
 
 const httpLink = new HttpLink({
   uri: 'http://localhost:4000',
