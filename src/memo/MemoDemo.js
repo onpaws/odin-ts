@@ -1,5 +1,5 @@
 import React from 'react';
-import {OnePropComponentMemoized} from './Memoized';
+import { OnePropComponentMemoized, OnePropComponent } from './Memoized';
 
 class MemoDemo extends React.Component {
   state = {
@@ -19,13 +19,19 @@ class MemoDemo extends React.Component {
   render() {
     const { date } = this.state;
     return (
-      <div>
-        <OnePropComponentMemoized frequency={1} />
-        It is {date.toLocaleString('en-US', 
+      <>
+      <p>setInterval() is updating state.date once per second</p>
+        state.date === {date.toLocaleString('en-US',
           { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })}
-      </div>
+          
+        <div>
+          <OnePropComponent frequency={1} />
+          <OnePropComponentMemoized frequency={1} />
+        </div>
+
+      </>
     )
   }
 }
 
-export {MemoDemo}
+export { MemoDemo }

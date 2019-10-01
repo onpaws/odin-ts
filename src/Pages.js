@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './card';
-import { RegularDemo, MemoDemo } from './memo';
+import { MemoDemo } from './memo';
 import Suspense from './suspense';
 import { StateAndEffectHookInput, HookReducer, HookMemo, DeepTreeDemo } from './hooks';
 
@@ -18,10 +18,7 @@ export const Home = () =>
 
 export const Memo = () =>
   <div>
-    <Card title={'Regular pure function demo'}>
-      <RegularDemo />
-    </Card>
-    <Card title={'Memoized pure function demo'}>
+    <Card title={'Regular pure function vs memoized demo'}>
       <MemoDemo />
     </Card>
   </div>

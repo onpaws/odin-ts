@@ -7,10 +7,10 @@ const Suspenders = lazy(() => import(/* webpackChunkName: "Suspenders" */ './Sus
 const SuspenseDemo = () =>
   <div>
     <ErrorBoundary>
-      <Suspense maxDuration={1000} fallback={<Spinner />}>
+      <Suspense fallback={<Spinner />}>
         <Suspenders />
       </Suspense>
-      <p>(spinner expected to display for 1s)</p>
+      <p>(spinner expected to display for 150ms)</p>
     </ErrorBoundary>
   </div>
 

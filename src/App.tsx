@@ -17,7 +17,7 @@ const App = () => {
       console.error(err)
     });
   }, []);
-  
+
   if (isLoading) {
     return <div>Loading...</div>
   }

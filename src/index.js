@@ -5,14 +5,18 @@ import './index.css';
 import App from './App';
 import Spinner from './spinner';
 import client from './Apollo';
+import ErrorBoundary from './ErrorBoundary';
 import * as serviceWorker from './serviceWorker';
 
 // .createRoot enables concurrent React
 ReactDOM.unstable_createRoot(document.getElementById('root')).render(
   <React.Suspense fallback={<Spinner />}>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <ErrorBoundary>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </ErrorBoundary>
+
   </React.Suspense>
 )
 
