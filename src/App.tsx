@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import { setAccessToken } from './accessToken';
 import Me from './Me';
+import Spinner from './spinner';
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -19,7 +20,7 @@ const App = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Spinner />
   }
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Router } from '@reach/router';
+import { Router, Link } from '@reach/router';
 import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree, LazySuspense  } from './Pages';
 import Hello from './Hello';
 import { wrapper, header, nav, content, sidebar, footer } from './Layout.module.css';
@@ -18,7 +18,6 @@ const Layout = () =>
         <li><Link to='/hook-memo'>Hook: Memo (filter)</Link></li>
         <li><Link to='/hook-deep-tree'>Hook: Passing dispatch with Context</Link></li>
         <li><Link to='/lazy-suspense'>React.Suspense &amp; React.lazy</Link></li>
-        
       </ul>
     </nav>
     <article className={content}>
@@ -40,7 +39,7 @@ const Layout = () =>
       </Router>
     </aside>
     <footer className={footer}>
-      &copy; 2019 Patrick Skinner
+      &copy; 2019, 2020 Patrick Skinner
     </footer>
   </div>
 
