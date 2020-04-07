@@ -1,9 +1,7 @@
-import ApolloClient from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloLink, split, Observable } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
-import { WebSocketLink } from 'apollo-link-ws';
-import { onError } from 'apollo-link-error';
+import { ApolloClient, ApolloLink, HttpLink, split, Observable } from '@apollo/client';
+import { InMemoryCache } from '@apollo/client/cache';
+import { WebSocketLink } from '@apollo/link-ws';
+import { onError } from '@apollo/link-error';
 import { getMainDefinition } from 'apollo-utilities';
 import { TokenRefreshLink } from 'apollo-link-token-refresh';
 import jwtDecode from 'jwt-decode';
@@ -82,40 +80,40 @@ const cache = new InMemoryCache();
 // Initialize the Apollo Client
 const client = new ApolloClient({
   link: ApolloLink.from([
-    new TokenRefreshLink({
-      accessTokenField: "accessToken",
-      isTokenValidOrUndefined: () => {
-        const token = getAccessToken();
+    // new TokenRefreshLink({
+    //   accessTokenField: "accessToken",
+    //   isTokenValidOrUndefined: () => {
+    //     const token = getAccessToken();
 
-        if (!token) {
-          return true;
-        }
+    //     if (!token) {
+    //       return true;
+    //     }
 
-        try {
-          const { exp } = jwtDecode(token);
-          if (Date.now() >= exp * 1000) {
-            return false;
-          } else {
-            return true;
-          }
-        } catch (err) {
-          return false;
-        }
-      },
-      fetchAccessToken: () => {
-        return fetch("http://localhost:4000/refresh_token", {
-          method: "POST",
-          credentials: "include"
-        })
-      },
-      handleFetch: accessToken => {
-        setAccessToken(accessToken);
-      },
-      handleError: err => {
-        console.warn("Your refresh token is invalid. Please try re-logging in.");
-        console.error(err);
-      }
-    }),
+    //     try {
+    //       const { exp } = jwtDecode(token);
+    //       if (Date.now() >= exp * 1000) {
+    //         return false;
+    //       } else {
+    //         return true;
+    //       }
+    //     } catch (err) {
+    //       return false;
+    //     }
+    //   },
+    //   fetchAccessToken: () => {
+    //     return fetch("http://localhost:4000/refresh_token", {
+    //       method: "POST",
+    //       credentials: "include"
+    //     })
+    //   },
+    //   handleFetch: accessToken => {
+    //     setAccessToken(accessToken);
+    //   },
+    //   handleError: err => {
+    //     console.warn("Your refresh token is invalid. Please try re-logging in.");
+    //     console.error(err);
+    //   }
+    // }),
     errorLink,
     requestLink,
     networkLink,

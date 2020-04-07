@@ -1,16 +1,18 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { ME_QUERY } from './graphql/queries/me'
 
 const Me = () => {
   const { loading, error, data } = useQuery(ME_QUERY);
-  if (loading) return <h1>Loading...</h1>;
-  if (error || !data.me) return <h1>Error :(</h1>;
+  if (loading) return <h4>Loading...</h4>;
+  if (error || !data.me) return <h4>Not logged in</h4>;
   
   const { me: { email } } = data;
   
   return (
-    <div>Email: {email}</div>
+    <div>
+      <p>Email: {email}</p>
+    </div>
   )
 }
 
