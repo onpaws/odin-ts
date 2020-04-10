@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './Layout';
+// import Layout from './Layout';
 import { setAccessToken } from './accessToken';
-import Me from './Me';
 import Login from './Login';
 import Todos from './Todos';
 import Spinner from './spinner';
@@ -14,8 +13,8 @@ const App = () => {
       method: "POST",
       credentials: "include"
     }).then(async response => {
-      const { accessToken } = await response.json();
-      setAccessToken(accessToken);
+      const { access_token } = await response.json();
+      setAccessToken(access_token);
       setLoading(false);
     }).catch(err => {
       console.error(err)
@@ -29,10 +28,11 @@ const App = () => {
   return (
     <div>
       {/* <Me /> */}
-      {showTodos && <Todos />}
-      <button onClick={()=> {toggleShowTodos(!showTodos)}}>todos</button>
       <Login />
-      <Layout />
+      <hr />
+      {showTodos && <Todos />}
+      <button onClick={()=> {toggleShowTodos(!showTodos)}}>toggle todos</button>
+      {/* <Layout /> */}
     </div>
   )
 }

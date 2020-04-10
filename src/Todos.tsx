@@ -12,7 +12,7 @@ query {
 const Todos = () => {
   const { loading, error, data } = useQuery(TODO_QUERY, {fetchPolicy: 'network-only'});
   if (loading) return <h4>Loading...</h4>;
-  if (error) return <h4>Error (todos)</h4>;
+  if (error) return <h4>Must log in</h4>;
   
   const { todos } = data;
   

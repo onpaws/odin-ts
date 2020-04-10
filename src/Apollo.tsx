@@ -101,7 +101,6 @@ const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
 });
 
 const tokenLink = new TokenRefreshLink({
-  accessTokenField: "accessToken",
   isTokenValidOrUndefined: () => {
     const token = getAccessToken();
 
@@ -120,14 +119,12 @@ const tokenLink = new TokenRefreshLink({
       return false;
     }
   },
-  fetchAccessToken: () => {
-    return fetch("http://localhost:4000/refresh_token", {
-      method: "POST",
-      credentials: "include"
-    })
-  },
-  handleFetch: (accessToken: string) => {
-    setAccessToken(accessToken);
+  fetchAccessToken: () => fetch("http://localhost:4000/refresh_token", {
+    method: "POST",
+    credentials: "include"
+  }),
+  handleFetch: (access_token: string) => {
+    setAccessToken(access_token);
   },
   handleError: (err: any) => {
     console.warn("Your refresh token is invalid. Please try re-logging in.");

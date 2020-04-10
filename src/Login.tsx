@@ -6,8 +6,9 @@ import { setAccessToken } from './accessToken';
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [login, { loading: mutationLoading, error: mutationError, client }] = useMutation(LOGIN_MUTATION, {
+  const [login, { loading: mutationLoading, error: mutationError }] = useMutation(LOGIN_MUTATION, {
     onError: (err) => {console.log(err)},
+    errorPolicy: 'all'
   });
   
   return (
@@ -19,10 +20,9 @@ const Login: React.FC = () => {
         });
 
         if (response) {
-          const { data: { accessToken } } = response;
+          const { data: { login: { accessToken } } } = response;
           setAccessToken(accessToken);
         }
-        console.log('client', client)
       }}>
       
       <input value={email} onChange={(e) => setEmail(e.target.value)} />
