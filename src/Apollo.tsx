@@ -1,5 +1,4 @@
-import { ApolloClient, ApolloLink, HttpLink, split, Observable } from '@apollo/client';
-import { InMemoryCache } from '@apollo/client/cache';
+import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, split, Observable } from '@apollo/client';
 import { WebSocketLink } from '@apollo/link-ws';
 import { onError } from '@apollo/link-error';
 import { getMainDefinition } from 'apollo-utilities';
@@ -63,62 +62,88 @@ const networkLink = split(  // split based on operation type
 );
 
 const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
-  if (graphQLErrors)
-    graphQLErrors.map(({ message, locations, path }) =>
-      console.log(
-        '[GraphQL error]: Message:', message, 'Location(s):', locations, 'Path:', path
-      ),
-    );
-  if (networkError) console.warn(
-    '[Network error]:', networkError, 'Operation:', operation.operationName
-  );
+  if (graphQLErrors) {
+    for (let err of graphQLErrors) {
+      if (err.extensions) {
+        // switch (err.extensions.code) {
+          // case 'UNAUTHENTICATED': {
+          //   // error code is set to UNAUTHENTICATED
+          //   // when AuthenticationError thrown in resolver
+          //   console.log('unauthed. lets fetch an access token!')
+          //   fetchToken().then((token) => {
+          //     console.log('fetchToken returned', token)
+          //     // modify the operation context with a new token
+          //     const oldHeaders = operation.getContext().headers;
+          //     console.log('oldHeaders', oldHeaders)
+          //     operation.setContext({
+          //       headers: {
+          //         ...oldHeaders,
+          //         Authorization: `Bearer: ${token}`,
+          //       },
+          //     });
+          //     console.table('operation', operation);
+          //     console.table('operation.getContext()', operation.getContext());
+          //     // retry the request, returning the new observable
+          //     return forward(operation);
+          //   })
+          // }
+          // default: {
+            console.error(
+              '[GraphQL error]: Message:', err.message, 'Location(s):', err.locations, 'Path:', err.path
+            )
+          // }
+        }
+      }
+    }
+  if (networkError)  {
+    console.warn('[Network error]:', networkError, 'Operation:', operation.operationName);
+  }
 });
 
-// Set up Cache
-const cache = new InMemoryCache();
+const tokenLink = new TokenRefreshLink({
+  accessTokenField: "accessToken",
+  isTokenValidOrUndefined: () => {
+    const token = getAccessToken();
+
+    if (!token) {
+      return true;
+    }
+
+    try {
+      const { exp } = jwtDecode(token);
+      if (Date.now() >= exp * 1000) {
+        return false;
+      } else {
+        return true;
+      }
+    } catch (err) {
+      return false;
+    }
+  },
+  fetchAccessToken: () => {
+    return fetch("http://localhost:4000/refresh_token", {
+      method: "POST",
+      credentials: "include"
+    })
+  },
+  handleFetch: (accessToken: string) => {
+    setAccessToken(accessToken);
+  },
+  handleError: (err: any) => {
+    console.warn("Your refresh token is invalid. Please try re-logging in.");
+    console.error(err);
+  },
+});
 
 // Initialize the Apollo Client
 const client = new ApolloClient({
   link: ApolloLink.from([
-    // new TokenRefreshLink({
-    //   accessTokenField: "accessToken",
-    //   isTokenValidOrUndefined: () => {
-    //     const token = getAccessToken();
-
-    //     if (!token) {
-    //       return true;
-    //     }
-
-    //     try {
-    //       const { exp } = jwtDecode(token);
-    //       if (Date.now() >= exp * 1000) {
-    //         return false;
-    //       } else {
-    //         return true;
-    //       }
-    //     } catch (err) {
-    //       return false;
-    //     }
-    //   },
-    //   fetchAccessToken: () => {
-    //     return fetch("http://localhost:4000/refresh_token", {
-    //       method: "POST",
-    //       credentials: "include"
-    //     })
-    //   },
-    //   handleFetch: accessToken => {
-    //     setAccessToken(accessToken);
-    //   },
-    //   handleError: err => {
-    //     console.warn("Your refresh token is invalid. Please try re-logging in.");
-    //     console.error(err);
-    //   }
-    // }),
+    tokenLink,
     errorLink,
     requestLink,
     networkLink,
   ]),
-  cache,
+  cache: new InMemoryCache()
 });
 
 export default client;

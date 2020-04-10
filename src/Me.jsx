@@ -5,7 +5,7 @@ import { ME_QUERY } from './graphql/queries/me'
 const Me = () => {
   const { loading, error, data } = useQuery(ME_QUERY);
   if (loading) return <h4>Loading...</h4>;
-  if (error || !data.me) return <h4>Not logged in</h4>;
+  if (error) return <h4>Error / not logged in</h4>;
   
   const { me: { email } } = data;
   
