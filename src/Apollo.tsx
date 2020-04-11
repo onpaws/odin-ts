@@ -119,7 +119,7 @@ const tokenLink = new TokenRefreshLink({
       return false;
     }
   },
-  fetchAccessToken: () => fetch("http://localhost:4000/refresh_token", {
+  fetchAccessToken: () => fetch("http://localhost:4000/access_token", {
     method: "POST",
     credentials: "include"
   }),
