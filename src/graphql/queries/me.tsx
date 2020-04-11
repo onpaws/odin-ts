@@ -1,11 +1,10 @@
-import gql from 'graphql-tag';
-import { userFragment } from "../fragments/userFragment";
+import { gql } from '@apollo/client';
 
 export const ME_QUERY = gql`
   query MeQuery {
     me {
-      ...UserInfo
+      id
+      email
     }
   }
-  ${userFragment}
 `;
