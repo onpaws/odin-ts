@@ -7,7 +7,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [login, { loading: mutationLoading, error: mutationError }] = useMutation(LOGIN_MUTATION, {
-    fetchPolicy: 'network-only',
+    fetchPolicy: 'no-cache',
     errorPolicy: 'all',
     onError: (err) => {console.log(err)},
   });

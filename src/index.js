@@ -9,7 +9,7 @@ import ErrorBoundary from './ErrorBoundary';
 import * as serviceWorker from './serviceWorker';
 
 // .createRoot enables concurrent React
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.unstable_createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <React.Suspense fallback={<Spinner />}>
       <ErrorBoundary>
