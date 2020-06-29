@@ -36,12 +36,12 @@ const requestLink = new ApolloLink(
 );
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000',
+  uri: 'http://localhost:4000/graphql',
   credentials: 'include'
 });
 
 const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:4000',
+  uri: 'ws://localhost:4000/graphql',
   options: {
     reconnect: true
   }
