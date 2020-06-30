@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { FOOD_QUERY } from './graphql/queries/foods'
+import { loader } from 'graphql.macro';
+const FOOD_QUERY = loader('./graphql/queries/foods.gql');
 
 const FoodData = () => {
   const { loading, error, data, fetchMore } = useQuery(FOOD_QUERY, {
@@ -28,7 +29,18 @@ const Food: React.FC<{ entries: any, onLoadMore: ()=>{} }> = ({ entries, onLoadM
       <div>hasNextPage: {entries.pageInfo.hasNextPage.toString()}</div>
       <div>endCursor: {entries.pageInfo.endCursor.toString()}</div>
     </div>
-    <pre>{JSON.stringify(entries, null, 2)}</pre>
+    {/* <pre>{JSON.stringify(entries, null, 2)}</pre> */}
+    
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-evenly' }}>
+      {entries.edges.map(({ node: { id, cuisine, address, notes } }: any) =>
+        <div style={{ display: 'flex'}} key={id}>
+          <div>{cuisine}</div>
+          <div>{address}</div>
+          <div>{notes}</div>
+        </div>
+      )}
+    </div>
+
   </div>
 
 export default FoodData

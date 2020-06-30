@@ -1,11 +1,9 @@
-import { gql } from '@apollo/client';
-
-export const FOOD_QUERY = gql`
 query FoodQuery($first: Int, $cursor: Cursor) {
   foods(first: $first, after: $cursor) {
     totalCount
     edges {
       node {
+        id
         cuisine
         address
         notes
@@ -21,4 +19,3 @@ query FoodQuery($first: Int, $cursor: Cursor) {
     }
   }
 }
-`

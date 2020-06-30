@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_MUTATION } from './graphql/mutations/login';
+import { loader } from 'graphql.macro';
 import { setAccessToken } from './accessToken';
+const LOGIN_MUTATION = loader('./graphql/mutations/login.gql');
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');

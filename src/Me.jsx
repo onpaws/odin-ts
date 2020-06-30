@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { ME_QUERY } from './graphql/queries/me'
+import { loader } from 'graphql.macro';
+const ME_QUERY = loader('./graphql/queries/me.gql');
 
 const Me = () => {
   const { loading, error, data } = useQuery(ME_QUERY);
