@@ -1,5 +1,5 @@
 import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, split, Observable } from '@apollo/client';
-// import { relayStylePagination } from "@apollo/client/utilities" // see InMemoryCache below
+import { relayStylePagination } from "@apollo/client/utilities" // see InMemoryCache below
 import { WebSocketLink } from '@apollo/link-ws';
 import { onError } from '@apollo/link-error';
 import { getMainDefinition } from 'apollo-utilities';
@@ -135,15 +135,13 @@ const tokenLink = new TokenRefreshLink({
 
 // see https://github.com/apollographql/apollo-client/commit/48df9da1d9a51c514ce3872cc3310ed683535221
 const cache = new InMemoryCache({
-  // typePolicies: {
-  //   Query: {
-  //     fields: {
-  //       // Keep searches separated by args.query (but not by any other
-  //       // arguments, since the field policy will handle them).
-  //       foods: relayStylePagination([]),
-  //     },
-  //   },
-  // },
+  typePolicies: {
+    Query: {
+      fields: {
+        foods: relayStylePagination(),
+      },
+    },
+  },
 })
 
 // Initialize the Apollo Client
