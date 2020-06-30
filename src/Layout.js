@@ -4,6 +4,7 @@ import { useAuth } from './useAuth';
 import Spinner from './spinner';
 import Login from './Login';
 import Todos from './Todos';
+import Food from './Food';
 import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree, LazySuspense } from './Pages';
 import Hello from './Hello';
 import { wrapper, header, nav, content, sidebar, footer } from './Layout.module.css';
@@ -24,6 +25,7 @@ const Layout = () => {
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/login'>Login</Link></li>
+          <li><Link to='/food'>Food</Link></li>
           <li><Link to='/todos'>Todos (must be logged on)</Link></li>
           <li><Link to='/memo'>React.memo</Link></li>
           <li><Link to='/hook'>Hook: useState, useEffect</Link></li>
@@ -37,6 +39,7 @@ const Layout = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/food' element={<Food />} />
           <Route path='/todos' element={<Todos />} />
           <Route path='/memo' element={<Memo />} />
           <Route path='/hook' element={<HookStateAndEffect />} />
