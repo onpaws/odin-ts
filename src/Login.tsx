@@ -22,8 +22,8 @@ const Login: React.FC = () => {
         });
 
         if (response) {
-          const { data: { login: { accessToken } } } = response;
-          setAccessToken(accessToken);
+          const { data: { authenticate: { jwtToken } } } = response;
+          setAccessToken(jwtToken);
           setEmail('');
           setPassword('');
         }
