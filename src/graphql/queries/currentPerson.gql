@@ -1,6 +1,5 @@
 query MeQuery {
-  me {
+  currentPerson {
     id
-    email
   }
 }
