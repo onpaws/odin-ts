@@ -1,0 +1,31 @@
+overwrite: true
+schema: "http://localhost:4000/graphql"
+documents: "src/**/*/*.gql"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      immutableTypes: true
+      flattenGeneratedTypes: true
+      preResolveTypes: true
+      reactApolloVersion: 3
+      gqlImport: graphql.macro#gql
+      withComponent: false
+      withHOC: false
+      withHooks: true
+      documentNode:  documentMode
+  src/generated/modules.d.ts:
+    plugins:
+      - typescript-graphql-files-modules
+  src/generated/fragment-matcher.json:
+    plugins:
+      - fragment-matcher
+    config:
+      apolloClientVersion: 3
+  src/generated/graphql.schema.json:
+    plugins:
+      - introspection
+      
