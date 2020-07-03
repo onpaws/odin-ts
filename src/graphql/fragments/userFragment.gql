@@ -1,0 +1,4 @@
+fragment NameParts on Person {
+  firstName
+  lastName
+}

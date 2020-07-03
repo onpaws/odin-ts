@@ -1,4 +1,4 @@
-query MeQuery {
+query CurrentPerson {
   currentPerson {
     id
   }

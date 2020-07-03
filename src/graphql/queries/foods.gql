@@ -1,4 +1,4 @@
-query FoodQuery($first: Int, $cursor: Cursor) {
+query Foods($first: Int, $cursor: Cursor) {
   foods(first: $first, after: $cursor) {
     totalCount
     edges {
