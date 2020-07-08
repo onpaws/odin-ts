@@ -11,6 +11,7 @@ query Foods($first: Int, $cursor: Cursor) {
         price  
       }
     }
+    totalCount
     pageInfo {
       hasPreviousPage
       hasNextPage

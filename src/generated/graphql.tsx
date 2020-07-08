@@ -1093,6 +1093,7 @@ export const FoodsDocument = gql`
         price
       }
     }
+    totalCount
     pageInfo {
       hasPreviousPage
       hasNextPage

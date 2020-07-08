@@ -20,7 +20,7 @@ const Food: React.FC<{ entries: any, onLoadMore: ()=>{} }> = ({ entries, onLoadM
   <div>
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-evenly'}}>
       <div><button onClick={onLoadMore} disabled={!entries.pageInfo.hasNextPage}>load</button></div>
-      <div>entries loaded: {entries && entries.edges && entries.edges.length.toString()}</div>
+      <div>entries loaded: {entries && entries.edges && entries.edges.length.toString()} / {entries?.totalCount}</div>
       <div>hasNextPage: {entries.pageInfo.hasNextPage.toString()}</div>
       <div>endCursor: {entries.pageInfo.endCursor.toString()}</div>
     </div>
