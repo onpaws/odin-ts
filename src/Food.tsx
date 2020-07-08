@@ -1,23 +1,18 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-const FOOD_QUERY = loader('./graphql/queries/foods.gql');
+import { useFoodsQuery } from './generated/graphql';
 
 const FoodData = () => {
-  const { loading, error, data, fetchMore } = useQuery(FOOD_QUERY, {
-    variables: { first: 1 }, // cursor null by default, set by onLoadMore
+  const { loading, error, data = {}, fetchMore } = useFoodsQuery({
+    variables: { first: 1 }, // cursor var is null by default, will be set by onLoadMore
     // fetchPolicy: 'network-only',
     notifyOnNetworkStatusChange: true
   });
   if (loading) return <h4>Loading...</h4>;
-  if (error) return <h4>Error: {error}</h4>;
-
+  if (error) return <h4>{error.toString()}</h4>
   const { foods } = data;
 
   return (
-    <Food entries={foods}
-      onLoadMore={() => fetchMore({ variables: { cursor: foods.pageInfo.endCursor } })}
-    />
+    <Food entries={foods} onLoadMore={() => fetchMore({ variables: { cursor: foods?.pageInfo.endCursor } })} />
   )
 }
 

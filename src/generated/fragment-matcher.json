@@ -1,0 +1,12 @@
+{
+  "possibleTypes": {
+    "Node": [
+      "Query",
+      "Blah",
+      "Drink",
+      "Food",
+      "Person",
+      "Post"
+    ]
+  }
+}

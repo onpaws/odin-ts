@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { useAuth } from './useAuth';
 import Spinner from './spinner';
 import Login from './Login';
-import Todos from './Todos';
+import Blahs from './Blahs';
 import Food from './Food';
 import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree, LazySuspense } from './Pages';
 import Hello from './Hello';
@@ -26,7 +26,7 @@ const Layout = () => {
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/login'>Login</Link></li>
           <li><Link to='/food'>Food</Link></li>
-          <li><Link to='/todos'>Todos (must be logged on)</Link></li>
+          <li><Link to='/blahs'>Blahs</Link></li>
           <li><Link to='/memo'>React.memo</Link></li>
           <li><Link to='/hook'>Hook: useState, useEffect</Link></li>
           <li><Link to='/hook-reducer'>Hook: useReducer</Link></li>
@@ -40,7 +40,7 @@ const Layout = () => {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/food' element={<Food />} />
-          <Route path='/todos' element={<Todos />} />
+          <Route path='/blahs' element={<Blahs />} />
           <Route path='/memo' element={<Memo />} />
           <Route path='/hook' element={<HookStateAndEffect />} />
           <Route path='hook-reducer' element={<HookReducerDemo />} />

@@ -1,0 +1,11 @@
+query Blahs {
+  blahs {
+    edges {
+      node {
+        id
+        nodeId
+        stuff
+      }
+    }
+  }
+}

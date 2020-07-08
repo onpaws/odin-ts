@@ -18,7 +18,7 @@ export const useAuth = () => {
 const useProvideAuth = () => {
   // loading defaults to true; intended to run when <App /> mounts
   const [loading, setLoading] = useState(true); 
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   
   const signIn = () => {};
   const signOut = () => {};
@@ -27,16 +27,15 @@ const useProvideAuth = () => {
   const confirmPasswordReset = () => {};
 
   useEffect(() => {
-    // intended to be called when <App /> mounts. If a valid refresh_token is in the cookie, 
-    // we fetch and store a access_token.
+    // intended to be called when <App /> mounts, normally init time. 
+    // If a valid refresh_token is in the cookie, we fetch and store an access_token
     fetch("http://localhost:4000/access_token", {
       method: "POST",
       credentials: "include"
     }).then(async response => {
-      const { access_token, email } = await response.json();
-      setAccessToken(access_token);
-      setUser({email})
-      setLoading(false);
+      const { access_token } = await response.json();
+      setAccessToken(access_token); // store in browser/page memory only, not persisted to local storage
+      // setUser({email})
     }).catch(err => {
       console.error('unable to connect to auth server', err)
     }).finally(() => {
@@ -46,7 +45,7 @@ const useProvideAuth = () => {
 
   return {
     loading,
-    user,
+    // user,
     signIn,
     signOut,
     signUp,
