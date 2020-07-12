@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { useAuth } from './useAuth';
 import Spinner from './spinner';
 import Login from './Login';
-import Blahs from './Blahs';
+import JSONBlobs from './JSONBlobs';
 import Food from './Food';
 import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree, LazySuspense } from './Pages';
 import Hello from './Hello';
@@ -40,7 +40,7 @@ const Layout = () => {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/food' element={<Food />} />
-          <Route path='/blahs' element={<Blahs />} />
+          <Route path='/blahs' element={<JSONBlobs />} />
           <Route path='/memo' element={<Memo />} />
           <Route path='/hook' element={<HookStateAndEffect />} />
           <Route path='hook-reducer' element={<HookReducerDemo />} />

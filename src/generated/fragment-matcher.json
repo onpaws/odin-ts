@@ -2,9 +2,9 @@
   "possibleTypes": {
     "Node": [
       "Query",
-      "Blah",
       "Drink",
       "Food",
+      "Jsonblob",
       "Person",
       "Post"
     ]

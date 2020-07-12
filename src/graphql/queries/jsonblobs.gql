@@ -1,5 +1,5 @@
-query Blahs {
-  blahs {
+query JSONBlobs {
+  jsonblobs {
     edges {
       node {
         id

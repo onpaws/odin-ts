@@ -15,18 +15,24 @@ const Login: React.FC = () => {
   
   return (
     <div>
-      <form onSubmit={async (e)=>{
-        e.preventDefault()
-        const response = await login({
-          variables: { email, password }
-        });
-
-        if (response) {
-          const { data: { authenticate2: jwtToken } } = response;
-          console.log('>', jwtToken);
-          setAccessToken(jwtToken);
-          setEmail('');
-          setPassword('');
+      <form onSubmit={async e=> {
+        e.preventDefault();
+        try {
+          const response = await login({ variables: { email, password } });
+          if (response) {
+            console.log(response)
+            const { data: { authenticate } } = response;
+            if (typeof authenticate === 'string') {
+              setAccessToken(authenticate);
+            } else {
+              throw new Error('unable to authenticate')
+            }
+            setEmail('');
+            setPassword('');
+          }
+        } catch (err) {
+          console.error(err)
+          throw new Error(err)
         }
       }}>
       

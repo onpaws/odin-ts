@@ -1,4 +1,4 @@
-import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, split, Observable } from '@apollo/client';
+import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, split, Observable, ServerError } from '@apollo/client';
 import { relayStylePagination } from "@apollo/client/utilities" // see InMemoryCache below
 import { WebSocketLink } from '@apollo/link-ws';
 import { onError } from '@apollo/link-error';
@@ -99,7 +99,11 @@ const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
         }
       }
     }
-  if (networkError)  {
+  if (networkError && (networkError as ServerError).statusCode === 401)  {
+    // TODO: logout
+    console.warn('401 may mean your auth token expired');
+  } 
+  else if (networkError) {
     console.warn('[Network error]:', networkError, 'Operation:', operation.operationName);
   }
 });

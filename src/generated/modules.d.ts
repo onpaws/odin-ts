@@ -17,15 +17,6 @@ declare module '*/login.gql' {
 }
     
 
-declare module '*/blahs.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const Blahs: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/currentPerson.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -39,6 +30,15 @@ declare module '*/foods.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const Foods: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/jsonblobs.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const JSONBlobs: DocumentNode;
 
   export default defaultDocument;
 }
