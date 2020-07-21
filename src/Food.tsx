@@ -3,7 +3,7 @@ import { useFoodsQuery } from './generated/graphql';
 
 const FoodData = () => {
   const { loading, error, data = {}, fetchMore } = useFoodsQuery({
-    variables: { first: 1 }, // cursor var is null by default, will be set by onLoadMore
+    variables: { first: 10 }, // cursor var is null by default, will be set by onLoadMore
     // fetchPolicy: 'network-only',
     notifyOnNetworkStatusChange: true
   });

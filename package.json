@@ -3,13 +3,13 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.0.0-rc.10",
+    "@apollo/client": "^3.0.2",
     "@apollo/link-error": "^2.0.0-beta.3",
     "@apollo/link-ws": "^2.0.0-beta.3",
-    "@types/jest": "26.0.4",
+    "@types/jest": "26.0.5",
     "@types/jwt-decode": "^2.2.1",
-    "@types/node": "14.0.19",
-    "@types/react": "16.9.41",
+    "@types/node": "14.0.24",
+    "@types/react": "16.9.43",
     "@types/react-dom": "16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "apollo-link-token-refresh": "^0.3.1",
@@ -23,8 +23,8 @@
     "react-router": "6.0.0-alpha.5",
     "react-router-dom": "6.0.0-alpha.5",
     "react-scripts": "3.4.1",
-    "subscriptions-transport-ws": "0.9.16",
-    "typescript": "3.9.6"
+    "subscriptions-transport-ws": "0.9.17",
+    "typescript": "3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,12 +43,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@graphql-codegen/cli": "1.16.3",
-    "@graphql-codegen/fragment-matcher": "1.16.3",
-    "@graphql-codegen/introspection": "^1.16.3",
-    "@graphql-codegen/typescript": "1.16.3",
-    "@graphql-codegen/typescript-graphql-files-modules": "1.16.3",
-    "@graphql-codegen/typescript-operations": "^1.16.3",
-    "@graphql-codegen/typescript-react-apollo": "1.16.3"
+    "@graphql-codegen/cli": "1.17",
+    "@graphql-codegen/fragment-matcher": "1.17",
+    "@graphql-codegen/introspection": "^1.17",
+    "@graphql-codegen/typescript": "1.17",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.17",
+    "@graphql-codegen/typescript-operations": "^1.17",
+    "@graphql-codegen/typescript-react-apollo": "1.17"
   }
 }

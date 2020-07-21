@@ -61,7 +61,7 @@ const networkLink = split(  // split based on operation type
     const { kind, operation }: Definition = getMainDefinition(query);
       return kind === 'OperationDefinition' && operation === 'subscription';
   },
-  wsLink,
+  wsLink as any,
   httpLink
 );
 
@@ -155,8 +155,8 @@ const cache = new InMemoryCache({
 // Initialize the Apollo Client
 const client = new ApolloClient({
   link: ApolloLink.from([
-    tokenLink,
-    errorLink,
+    tokenLink as any,  // why as any? see https://github.com/apollographql/apollo-link/issues/538
+    errorLink as any,  // yep, its weird and seems to be b/c of graphql-codegen maybe
     requestLink,
     networkLink,
   ]),
