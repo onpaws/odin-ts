@@ -1,6 +1,11 @@
-import React, { useState, useTransition, Suspense } from "react";
+import React, { useState, useTransition } from "react";
+import { fetchProfileData } from "./fakeApi";
 
-const initialResource = {};
+const initialResource = fetchProfileData(0);
+
+function getNextId(id) {
+  return id === 3 ? 0 : id + 1;
+}
 
 export const TransitionDemo = () => {
   const [resource, setResource] = useState(initialResource);
@@ -12,8 +17,10 @@ export const TransitionDemo = () => {
     <div>
       <button
         onClick={() => {
-          const nextUserId = getNextId(resource.userId);
-          setResource(fetchProfileData(nextUserId));
+          startTransition(() => {
+            const nextUserId = getNextId(resource.userId);
+            setResource(fetchProfileData(nextUserId));
+          })
         }}
         Next
       ></button>

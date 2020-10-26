@@ -21,7 +21,6 @@
     "graphql.macro": "^1.4.2",
     "jwt-decode": "3.0.0",
     "react": "0.0.0-experimental-4ead6b530",
-    "react-cache": "2.0.0-alpha.1",
     "react-dom": "0.0.0-experimental-4ead6b530",
     "react-router": "6.0.0-alpha.5",
     "react-router-dom": "6.0.0-alpha.5",

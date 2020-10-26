@@ -14,21 +14,22 @@ export const HookMemo = () => {
     console.log('filterUsers() called')
     return users.filter(user => user.match(searchText));
   }
-
-  const users = [
-    'bob',
-    'charles',
-    'ragnhild',
-    'patrick',
-    'gerd',
-    'andrew',
-    'paul',
-    'zelda'
-  ];
-  
+ 
   const filteredUsers = useMemo(
-    () => filterUsers(users, searchText),
-    [users, searchText]
+    () => {
+      const users = [
+        'bob',
+        'charles',
+        'ragnhild',
+        'patrick',
+        'gerd',
+        'andrew',
+        'paul',
+        'zelda'
+      ];
+      return filterUsers(users, searchText)
+    },
+    [searchText]
   )
 
   return (

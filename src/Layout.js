@@ -5,7 +5,7 @@ import Spinner from './spinner';
 import Login from './Login';
 import JSONBlobs from './JSONBlobs';
 import Food from './Food';
-import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree, LazySuspense } from './Pages';
+import { Home, Memo, HookStateAndEffect, HookReducerDemo, HookMemoDemo, HookDeepTree } from './Pages';
 import Hello from './Hello';
 import { wrapper, header, nav, content, sidebar, footer } from './Layout.module.css';
 
@@ -32,7 +32,7 @@ const Layout = () => {
           <li><Link to='/hook-reducer'>Hook: useReducer</Link></li>
           <li><Link to='/hook-memo'>Hook: Memo (filter)</Link></li>
           <li><Link to='/hook-deep-tree'>Hook: Passing dispatch with Context</Link></li>
-          <li><Link to='/lazy-suspense'>React.Suspense &amp; React.lazy</Link></li>
+          {/* <li><Link to='/lazy-suspense'>React.Suspense &amp; React.lazy</Link></li> */}
         </ul>
       </nav>
       <article className={content}>
@@ -46,7 +46,7 @@ const Layout = () => {
           <Route path='hook-reducer' element={<HookReducerDemo />} />
           <Route path='/hook-memo' element={<HookMemoDemo />}/>
           <Route path='/hook-deep-tree' element={<HookDeepTree />} />
-          <Route path='/lazy-suspense' element={<LazySuspense />} />
+          {/* <Route path='/lazy-suspense' element={<LazySuspense />} /> */}
         </Routes>
 
       </article>
