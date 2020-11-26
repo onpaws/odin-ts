@@ -1,9 +1,10 @@
 import React from 'react';
-import { unstable_createResource } from 'react-cache';
+// import { unstable_createResource } from 'react-cache';
 
 const sleep = ms => new Promise(resolve => setTimeout(() => resolve(), ms));
 
-const RandomUserResource = unstable_createResource(async () => {
+// const RandomUserResource = unstable_createResource(async () => {
+const RandomUserResource = (async () => {
   await sleep(2000);
   const response = await fetch('https://randomuser.me/api/');
   return await response.json();

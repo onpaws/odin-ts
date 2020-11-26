@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { useAuth } from './useAuth';
 import Spinner from './spinner';
 import Login from './Login';
@@ -36,26 +36,26 @@ const Layout = () => {
         </ul>
       </nav>
       <article className={content}>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/food' element={<Food />} />
-          <Route path='/blahs' element={<JSONBlobs />} />
-          <Route path='/memo' element={<Memo />} />
-          <Route path='/hook' element={<HookStateAndEffect />} />
-          <Route path='hook-reducer' element={<HookReducerDemo />} />
-          <Route path='/hook-memo' element={<HookMemoDemo />}/>
-          <Route path='/hook-deep-tree' element={<HookDeepTree />} />
-          {/* <Route path='/lazy-suspense' element={<LazySuspense />} /> */}
-        </Routes>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/login' component={Login} />
+          <Route path='/food' component={Food} />
+          <Route path='/blahs' component={JSONBlobs} />
+          <Route path='/memo' component={Memo} />
+          <Route path='/hook' component={HookStateAndEffect} />
+          <Route path='hook-reducer' component={HookReducerDemo} />
+          <Route path='/hook-memo' component={HookMemoDemo}/>
+          <Route path='/hook-deep-tree' component={HookDeepTree} />
+          {/* <Route path='/lazy-suspense' component={LazySuspense} /> */}
+        </Switch>
 
       </article>
       <aside className={sidebar}>
-        <Routes>
-          <Route path='/memo' element={<MemoSidebar />} />
-          <Route path='/hook' element={<HookStateSidebar />} />
-          <Route path='/hook-deep-tree' element={<HookDeepTreeSidebar />}/>
-        </Routes>
+        <Switch>
+          <Route path='/memo' component={MemoSidebar} />
+          <Route path='/hook' component={HookStateSidebar} />
+          <Route path='/hook-deep-tree' component={HookDeepTreeSidebar}/>
+        </Switch>
       </aside>
       <footer className={footer}>
         &copy; 2019, 2020 Patrick Skinner

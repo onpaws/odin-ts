@@ -117,7 +117,7 @@ const tokenLink = new TokenRefreshLink({
     }
 
     try {
-      const { exp } = jwtDecode(token);
+      const { exp } = jwtDecode(token) as { exp: number };
       if (Date.now() >= exp * 1000) {
         return false;
       } else {
