@@ -24,3 +24,6 @@ yarn-error.log*
 
 # Docker integration
 .env
+
+# .eslintcache appears to be unneeded in the git repo
+.eslintcache
