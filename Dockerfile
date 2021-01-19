@@ -30,6 +30,8 @@ COPY docker/nginx/http_headers.conf docker/nginx/compression.conf /etc/nginx/
 COPY docker/config-injection.sh /docker-entrypoint.sh
 
 COPY --from=builder /app/build /usr/share/nginx/html
-EXPOSE 80
+# GitLab Auto DevOps defaults to port 5000
+# https://gitlab.com/gitlab-org/cluster-integration/auto-deploy-image/-/blob/master/assets/auto-deploy-app/README.md#L42
+EXPOSE 80 5000
 ENTRYPOINT [ "/docker-entrypoint.sh"]
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
