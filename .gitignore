@@ -27,3 +27,6 @@ yarn-error.log*
 
 # .eslintcache appears to be unneeded in the git repo
 .eslintcache
+
+# IntelliJ
+/*.iml
