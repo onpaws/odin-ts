@@ -24,8 +24,8 @@ done
 
 FILES=$(grep -rl __REACT_APP_WS_BE__ .)
 for FILE in $FILES; do
-  echo "Injecting ${HTTP_WS} into ${FILE}"
-  sed -i "s~__REACT_APP_HTTP_WS__~${HTTP_WS}~g" ${FILE}
+  echo "Injecting ${WS_BE} into ${FILE}"
+  sed -i "s~__REACT_APP_WS_BE__~${WS_BE}~g" ${FILE}
 done
 
 # Optionally enable Content Security Policy when user passes in ENABLE_CSP env var
