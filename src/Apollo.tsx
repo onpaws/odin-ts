@@ -39,13 +39,25 @@ const requestLink = new ApolloLink(
     })
 );
 
+const { NODE_ENV, REACT_APP_HTTP_BE, REACT_APP_WS_BE } = process.env;
+const HTTPURL = (NODE_ENV === 'development' || NODE_ENV === 'test') ? REACT_APP_HTTP_BE! : '__REACT_APP_HTTP_BE__';
+const WSURL = (NODE_ENV === 'development' || NODE_ENV === 'test') ? REACT_APP_WS_BE : '__REACT_APP_WS_BE__';
+if (NODE_ENV === 'development' && !HTTPURL) {
+  throw new Error('I need a backend! Please provide a .env file including valid URL for REACT_APP_HTTP_BE')
+}
+if (NODE_ENV === 'production' && HTTPURL && HTTPURL.length && !HTTPURL.startsWith('http')) {
+  console.error('You appear to be running a production build but valid URLs have not been injected.')
+  console.info(`HTTPURL is: ${HTTPURL}`);
+  console.info(`WSURL is: ${WSURL}`);
+}
+
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: HTTPURL, // e.g. http://localhost:4000/graphql'
   credentials: 'include'
 });
 
 const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:4000/graphql',
+  uri: WSURL || HTTPURL,  // e.g. 'ws://localhost:4000/graphql'
   options: {
     reconnect: true
   }
