@@ -30,7 +30,7 @@
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.20.0",
+    "@graphql-codegen/cli": "1.21.8",
     "@graphql-codegen/fragment-matcher": "2.0.1",
     "@graphql-codegen/introspection": "1.18.1",
     "@graphql-codegen/typescript": "1.20.0",
